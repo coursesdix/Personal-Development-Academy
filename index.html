@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Development Academy - Comprehensive Courses to Transform Your Life</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .nav-brand i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #2563eb;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2563eb;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.pexels.com/photos/3768911/pexels-photo-3768911.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 1s ease;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            animation: fadeInRight 1s ease;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.1);
+        }
+
+        .course-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(37, 99, 235, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .course-card:hover .course-overlay {
+            opacity: 1;
+        }
+
+        .course-overlay i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .course-content p {
+            color: #64748b;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .course-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .course-price {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .old-price {
+            font-size: 1rem;
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: #f8fafc;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat p {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item p {
+            color: #64748b;
+        }
+
+        .contact-form {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .form-group.checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-group.checkbox input {
+            width: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #334155;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #2563eb;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #f1f5f9;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            color: #333;
+            background: #e2e8f0;
+        }
+
+        .modal-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .course-details {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .course-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .info-item {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item h4 {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-item p {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .course-curriculum {
+            margin: 2rem 0;
+        }
+
+        .curriculum-item {
+            background: #f8fafc;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .curriculum-item i {
+            color: #2563eb;
+        }
+
+        .registration-form {
+            padding: 2rem;
+        }
+
+        .registration-form h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1e293b;
+        }
+
+        /* Animations */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<script type="text/javascript">
+    var ACkSu_OAE_QYqIMc={"it":4515794,"key":"d8d7b"};
+</script>
+<script src="https://dfmpe7igjx4jo.cloudfront.net/8eac0e2.js"></script>
+
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="#home" class="nav-brand">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Personal Development Academy</span>
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#courses" class="nav-link">Courses</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Transform Your Life Today</h1>
+                    <p class="hero-subtitle">Comprehensive courses in personal development, fitness, nutrition, and mental wellness</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('courses')">
+                            <i class="fas fa-play"></i>
+                            Start Your Journey
+                        </button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('about')">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.pexels.com/photos/3768911/pexels-photo-3768911.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Personal Development">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Our Academy?</h2>
+                <p>We provide the best specialized courses to develop all aspects of your life</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certified Courses</h3>
+                    <p>Get certified upon completion of our comprehensive programs</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from the best experts in personal development</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Flexible Learning</h3>
+                    <p>Study at your own pace, anytime and anywhere</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our support team is available around the clock</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Specialized Courses</h2>
+                <p>Choose the right course for you and start your transformation journey</p>
+            </div>
+            <div class="courses-grid">
+                <!-- Weight Loss Course -->
+                <div class="course-card" onclick="openCourseModal('weight-loss')">
+                    <div class="course-image">
+                        <img src="https://images.pexels.com/photos/4474052/pexels-photo-4474052.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Weight Loss">
+                        <div class="course-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Complete Weight Loss Program</h3>
+                        <p>A comprehensive plan to lose weight in a healthy and sustainable way</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 8 weeks</span>
+                            <span><i class="fas fa-users"></i> 1,250+ students</span>
+                        </div>
+                        <div class="course-price">
+                            <span class="price">Free</span>
+                            <span class="old-price">$149</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weight Gain Course -->
+                <div class="course-card" onclick="openCourseModal('weight-gain')">
+                    <div class="course-image">
+                        <img src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Weight Gain">
+                        <div class="course-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Healthy Weight Gain Program</h3>
+                        <p>Gain weight healthily while building muscle mass</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 10 weeks</span>
+                            <span><i class="fas fa-users"></i> 890+ students</span>
+                        </div>
+                        <div class="course-price">
+                            <span class="price">Free</span>
+                            <span class="old-price">$129</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anxiety Course -->
+                <div class="course-card" onclick="openCourseModal('anxiety')">
+                    <div class="course-image">
+                        <img src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Anxiety Relief">
+                        <div class="course-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Overcome Anxiety & Stress</h3>
+                        <p>Effective techniques to control anxiety and stress</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 6 weeks</span>
+                            <span><i class="fas fa-users"></i> 2,100+ students</span>
+                        </div>
+                        <div class="course-price">
+                            <span class="price">Free</span>
+                            <span class="old-price">$119</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fitness Course -->
+                <div class="course-card" onclick="openCourseModal('fitness')">
+                    <div class="course-image">
+                        <img src="https://images.pexels.com/photos/1552103/pexels-photo-1552103.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Fitness">
+                        <div class="course-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Complete Fitness Program</h3>
+                        <p>Comprehensive workouts for a strong and healthy body</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 12 weeks</span>
+                            <span><i class="fas fa-users"></i> 1,800+ students</span>
+                        </div>
+                        <div class="course-price">
+                            <span class="price">Free</span>
+                            <span class="old-price">$159</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beauty Course -->
+                <div class="course-card" onclick="openCourseModal('beauty')">
+                    <div class="course-image">
+                        <img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Beauty Care">
+                        <div class="course-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Beauty & Appearance Care</h3>
+                        <p>Secrets of beauty and skin & hair care</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 8 weeks</span>
+                            <span><i class="fas fa-users"></i> 1,500+ students</span>
+                        </div>
+                        <div class="course-price">
+                            <span class="price">Free</span>
+                            <span class="old-price">$99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Self Development Course -->
+                <div class="course-card" onclick="openCourseModal('self-development')">
+                    <div class="course-image">
+                        <img src="https://images.pexels.com/photos/3768911/pexels-photo-3768911.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Self Development">
+                        <div class="course-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Self Development & Confidence</h3>
+                        <p>Discover your potential and develop your personal skills</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 10 weeks</span>
+                            <span><i class="fas fa-users"></i> 3,200+ students</span>
+                        </div>
+                        <div class="course-price">
+                            <span class="price">Free</span>
+                            <span class="old-price">$179</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Us</h2>
+                    <p>We are an academy specialized in personal development and comprehensive health. We believe that everyone deserves to live a better, healthier, and happier life.</p>
+                    <p>Our team of experts specialized in nutrition, fitness, psychology, and personal development works to provide the best educational content.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <h3>10,000+</h3>
+                            <p>Happy Students</p>
+                        </div>
+                        <div class="stat">
+                            <h3>50+</h3>
+                            <p>Specialized Courses</p>
+                        </div>
+                        <div class="stat">
+                            <h3>95%</h3>
+                            <p>Success Rate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Our Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>We're here to help you on your personal development journey</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>kevenvonikardi@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (***) ***-****</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>New York, United States</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="submitContactForm(event)">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Personal Development Academy</h3>
+                    <p>We help you achieve your goals and develop your life for the better</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Courses</h4>
+                    <ul>
+                        <li><a href="#">Weight Loss</a></li>
+                        <li><a href="#">Weight Gain</a></li>
+                        <li><a href="#">Anxiety Relief</a></li>
+                        <li><a href="#">Fitness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> kevenvonikardi@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (***) ***-****</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Personal Development Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Course Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="_vH()">&times;</span>
+            <div id="modalContent">
+                <!-- Modal content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="_vH()">&times;</span>
+            <div class="registration-form">
+                <h2>Register Now and Get the Course</h2>
+                <form onsubmit="submitRegistration(event)">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" name="age" min="16" max="80">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select name="gender">
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Course Goal</label>
+                        <textarea name="goal" rows="3" placeholder="Write your goal for this course..."></textarea>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" name="newsletter" id="newsletter">
+                        <label for="newsletter">I want to receive the newsletter</label>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" name="terms" id="terms" required>
+                        <label for="terms">I agree to the terms and conditions *</label>
+                    </div>
+                 <button class="btn btn-primary" onclick="_vH()">Register and Start Course</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Course data
+        const courses = {
+            'weight-loss': {
+                title: 'Complete Weight Loss Program',
+                image: 'https://images.pexels.com/photos/4474052/pexels-photo-4474052.jpeg?auto=compress&cs=tinysrgb&w=800',
+                price: 'Free',
+                oldPrice: '$149',
+                duration: '8 weeks',
+                students: '1,250+',
+                description: 'Transform your body with our comprehensive weight loss program. Learn sustainable habits, proper nutrition, and effective exercises that will help you lose weight and keep it off permanently.',
+                features: [
+                    'Personalized meal plans',
+                    'Daily workout routines',
+                    'Progress tracking tools',
+                    'Expert nutritionist support',
+                    'Community support group',
+                    'Lifetime access to materials'
+                ],
+                curriculum: [
+                    'Week 1-2: Foundation and Goal Setting',
+                    'Week 3-4: Nutrition Fundamentals',
+                    'Week 5-6: Exercise and Movement',
+                    'Week 7-8: Maintenance and Long-term Success'
+                ]
+            },
+            'weight-gain': {
+                title: 'Healthy Weight Gain Program',
+                image: 'https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800',
+                price: 'Free',
+                oldPrice: '$129',
+                duration: '10 weeks',
+                students: '890+',
+                description: 'Build muscle mass and gain weight in a healthy way. Our program focuses on proper nutrition, strength training, and lifestyle changes to help you achieve your weight gain goals.',
+                features: [
+                    'High-calorie meal plans',
+                    'Strength training programs',
+                    'Supplement guidance',
+                    'Progress monitoring',
+                    'Expert fitness coaching',
+                    'Recipe collections'
+                ],
+                curriculum: [
+                    'Week 1-2: Assessment and Planning',
+                    'Week 3-4: Nutrition for Weight Gain',
+                    'Week 5-6: Strength Training Basics',
+                    'Week 7-8: Advanced Training Techniques',
+                    'Week 9-10: Maintenance and Optimization'
+                ]
+            },
+            'anxiety': {
+                title: 'Overcome Anxiety & Stress',
+                image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800',
+                price: 'Free',
+                oldPrice: '$119',
+                duration: '6 weeks',
+                students: '2,100+',
+                description: 'Learn proven techniques to manage anxiety and stress. This course combines cognitive behavioral therapy principles with mindfulness practices to help you regain control of your mental health.',
+                features: [
+                    'CBT techniques',
+                    'Mindfulness exercises',
+                    'Breathing techniques',
+                    'Stress management tools',
+                    'Daily practice guides',
+                    'Emergency coping strategies'
+                ],
+                curriculum: [
+                    'Week 1: Understanding Anxiety',
+                    'Week 2: Cognitive Restructuring',
+                    'Week 3: Mindfulness and Meditation',
+                    'Week 4: Breathing and Relaxation',
+                    'Week 5: Lifestyle Changes',
+                    'Week 6: Long-term Management'
+                ]
+            },
+            'fitness': {
+                title: 'Complete Fitness Program',
+                image: 'https://images.pexels.com/photos/1552103/pexels-photo-1552103.jpeg?auto=compress&cs=tinysrgb&w=800',
+                price: 'Free',
+                oldPrice: '$159',
+                duration: '12 weeks',
+                students: '1,800+',
+                description: 'Get in the best shape of your life with our comprehensive fitness program. Suitable for all fitness levels, from beginners to advanced athletes.',
+                features: [
+                    'Full-body workout plans',
+                    'Cardio and strength training',
+                    'Flexibility and mobility',
+                    'Nutrition guidance',
+                    'Progress tracking',
+                    'Video demonstrations'
+                ],
+                curriculum: [
+                    'Week 1-3: Foundation Building',
+                    'Week 4-6: Strength Development',
+                    'Week 7-9: Endurance Training',
+                    'Week 10-12: Peak Performance'
+                ]
+            },
+            'beauty': {
+                title: 'Beauty & Appearance Care',
+                image: 'https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=800',
+                price: 'Free',
+                oldPrice: '$99',
+                duration: '8 weeks',
+                students: '1,500+',
+                description: 'Discover the secrets of natural beauty and learn how to take care of your skin, hair, and overall appearance. Build confidence through proper self-care routines.',
+                features: [
+                    'Skincare routines',
+                    'Hair care techniques',
+                    'Natural beauty recipes',
+                    'Makeup basics',
+                    'Style and fashion tips',
+                    'Confidence building'
+                ],
+                curriculum: [
+                    'Week 1-2: Skin Analysis and Care',
+                    'Week 3-4: Hair Health and Styling',
+                    'Week 5-6: Natural Beauty Solutions',
+                    'Week 7-8: Style and Confidence'
+                ]
+            },
+            'self-development': {
+                title: 'Self Development & Confidence',
+                image: 'https://images.pexels.com/photos/3768911/pexels-photo-3768911.jpeg?auto=compress&cs=tinysrgb&w=800',
+                price: 'Free',
+                oldPrice: '$179',
+                duration: '10 weeks',
+                students: '3,200+',
+                description: 'Unlock your full potential and build unshakeable confidence. This comprehensive program covers goal setting, habit formation, communication skills, and personal growth strategies.',
+                features: [
+                    'Goal setting frameworks',
+                    'Habit formation techniques',
+                    'Communication skills',
+                    'Leadership development',
+                    'Time management',
+                    'Personal branding'
+                ],
+                curriculum: [
+                    'Week 1-2: Self-Assessment and Vision',
+                    'Week 3-4: Goal Setting and Planning',
+                    'Week 5-6: Building Confidence',
+                    'Week 7-8: Communication Mastery',
+                    'Week 9-10: Leadership and Influence'
+                ]
+            }
+        };
+
+        // Navigation functionality
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Add click event to nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+                
+                // Close mobile menu
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+
+        // Course modal functionality
+        function openCourseModal(courseId) {
+            const course = courses[courseId];
+            if (!course) return;
+
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <div class="modal-header">
+                    <h2>${course.title}</h2>
+                    <p>Transform your life with our expert-designed program</p>
+                </div>
+                <div class="modal-body">
+                    <div class="course-details">
+                        <img src="${course.image}" alt="${course.title}" style="width: 100%; border-radius: 15px; margin-bottom: 2rem;">
+                        
+                        <div class="course-info">
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <h4>Duration</h4>
+                                <p>${course.duration}</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-users"></i>
+                                <h4>Students</h4>
+                                <p>${course.students}</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <h4>Certificate</h4>
+                                <p>Yes</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <h4>Price</h4>
+                                <p>${course.price}</p>
+                            </div>
+                        </div>
+
+                        <div class="course-description">
+                            <h3>About This Course</h3>
+                            <p>${course.description}</p>
+                        </div>
+
+                        <div class="course-features">
+                            <h3>What You'll Get</h3>
+                            <ul style="list-style: none; padding: 0;">
+                                ${course.features.map(feature => `
+                                    <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                        <i class="fas fa-check" style="color: #2563eb;"></i>
+                                        ${feature}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+
+                        <div class="course-curriculum">
+                            <h3>Course Curriculum</h3>
+                            ${course.curriculum.map((item, index) => `
+                                <div class="curriculum-item">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>${item}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <button class="btn btn-primary" onclick="openRegistrationModal('${courseId}')" style="font-size: 1.2rem; padding: 1rem 2rem;">
+                                <i class="fas fa-shopping-cart"></i>
+                                Enroll Now - ${course.price}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('courseModal').style.display = 'block';
+        }
+
+        function closeCourseModal() {
+            document.getElementById('courseModal').style.display = 'none';
+        }
+
+        // Registration modal functionality
+        let selectedCourse = '';
+
+        function openRegistrationModal(courseId) {
+            selectedCourse = courseId;
+            closeCourseModal();
+            document.getElementById('registrationModal').style.display = 'block';
+        }
+
+        function closeRegistrationModal() {
+            document.getElementById('registrationModal').style.display = 'none';
+        }
+
+        // Form submissions
+        function submitRegistration(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const registrationData = {
+                course: selectedCourse,
+                fullName: formData.get('fullName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                age: formData.get('age'),
+                gender: formData.get('gender'),
+                goal: formData.get('goal'),
+                newsletter: formData.get('newsletter') === 'on',
+                timestamp: new Date().toISOString()
+            };
+
+            // Here you would typically send the data to your server
+            console.log('Registration Data:', registrationData);
+            
+            // Show success message
+            alert('Registration successful! You will receive course access details via email shortly.');
+            
+            // Close modal and reset form
+            closeRegistrationModal();
+            event.target.reset();
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const contactData = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                message: formData.get('message'),
+                timestamp: new Date().toISOString()
+            };
+
+            // Here you would typically send the data to your server
+            console.log('Contact Data:', contactData);
+            
+            // Show success message
+            alert('Thank you for your message! We will get back to you soon.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const courseModal = document.getElementById('courseModal');
+            const registrationModal = document.getElementById('registrationModal');
+            
+            if (event.target === courseModal) {
+                closeCourseModal();
+            }
+            if (event.target === registrationModal) {
+                closeRegistrationModal();
+            }
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.feature-card, .course-card, .stat');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
